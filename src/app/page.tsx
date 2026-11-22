@@ -128,23 +128,33 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Visual Highlight Card */}
-            <div className="lg:col-span-5 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white p-8 sm:p-10 rounded-2xl border border-slate-700/60 shadow-xl">
-              <div className="flex items-center justify-between mb-4">
-                <div className="text-5xl sm:text-6xl font-black text-sky-400">2000</div>
-                <span className="px-3 py-1 rounded-full text-xs font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-400/30 flex items-center gap-1.5">
-                  <FileCheck size={14} />
-                  <span>IDA Certified</span>
-                </span>
-              </div>
-              <div className="text-sm font-semibold uppercase tracking-wider text-slate-400 mb-6">Year of Establishment</div>
-              <p className="text-sm sm:text-base text-slate-300 leading-relaxed mb-6">
-                Headquartered with a state-of-the-art manufacturing plant in 10th of Ramadan Industrial Zone (Plot 86, Zone A6),
-                delivering 65+ million certified closures annually to Egypt and regional pharmaceutical producers.
-              </p>
-              <div className="p-4 rounded-xl bg-slate-800/80 border border-slate-700 text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-white block mb-1">Certified Raw Materials:</strong> 
-                100% of our aluminium sheets, liners, and food/drug-grade polymers are imported from trusted European manufacturers, mainly Germany and France.
+            {/* Visual Highlight Card with Authentic Factory Backdrop */}
+            <div className="lg:col-span-5 relative rounded-2xl overflow-hidden border border-slate-700 shadow-2xl min-h-[380px] sm:min-h-[420px] flex flex-col justify-end p-6 sm:p-8 text-white group bg-slate-950">
+              <Image
+                src="/images/factory/factory-exterior.jpg"
+                alt="Egypt Pharma 10th of Ramadan Manufacturing Plant Architectural Facade"
+                fill
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/80 to-transparent" />
+              
+              <div className="relative z-10 space-y-3">
+                <div className="flex items-center justify-between">
+                  <div className="text-4xl sm:text-5xl font-black text-sky-400">2000</div>
+                  <span className="px-3 py-1 rounded-full text-xs font-bold bg-indigo-500/30 text-indigo-200 border border-indigo-400/30 flex items-center gap-1.5 backdrop-blur-md">
+                    <FileCheck size={14} />
+                    <span>IDA Reg: 2003/29971</span>
+                  </span>
+                </div>
+                <div className="text-xs font-bold uppercase tracking-wider text-slate-300">Headquarters &amp; Industrial Plant</div>
+                <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
+                  Situated in 10th of Ramadan City Industrial Zone (Plot 86, Zone A6), with an authorized nominal capacity of 65+ million certified pharmaceutical closures annually.
+                </p>
+                <div className="p-3 rounded-lg bg-slate-900/80 border border-white/10 text-[11px] text-slate-300 backdrop-blur-sm">
+                  <strong className="text-white block mb-0.5">European Raw Materials:</strong>
+                  100% aluminium sheets (Alloy 8011) and virgin drug-contact polymers imported from Germany and France.
+                </div>
               </div>
             </div>
           </div>
@@ -178,51 +188,93 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {/* Card 1: Aluminium */}
-            <div className="flex flex-col p-6 sm:p-8 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-sky-300 hover:shadow-lg transition-all duration-300">
-              <div className="w-14 h-14 rounded-xl flex items-center justify-center bg-blue-50 text-blue-600 mb-6">
-                <Layers size={28} />
+            <div className="flex flex-col rounded-2xl bg-white border border-slate-200 overflow-hidden hover:border-sky-300 hover:shadow-xl transition-all duration-300 group">
+              <div className="relative h-48 w-full bg-slate-900 overflow-hidden">
+                <Image
+                  src="/images/products/cap-28-18-bottles.jpg"
+                  alt="Egypt Pharma 28*18 mm Aluminium P.P. Caps on Medical Bottles"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-bold bg-blue-600/90 text-white shadow-md">
+                  Aluminium P.P. Caps
+                </span>
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Aluminium P.P. Caps</h3>
-              <p className="text-sm text-slate-600 leading-relaxed mb-6 flex-1">
-                Our Pilfer-Proof (P.P.) caps of size <strong>28 * 18 mm</strong> are produced from special
-                European Aluminium sheets, engineered with precision tamper-evident scoring and exceptional hermetic sealing.
-              </p>
-              <Link href="/products" className="inline-flex items-center gap-1.5 text-sm font-semibold text-sky-600 hover:text-sky-700 mt-auto">
-                <span>View Specifications</span>
-                <ChevronRight size={16} />
-              </Link>
+              <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-sky-600 transition-colors">
+                    Aluminium P.P. Caps (28*18 mm)
+                  </h3>
+                  <p className="text-sm text-slate-600 leading-relaxed mb-6">
+                    Pilfer-Proof closures produced from premium European Aluminium sheets (Alloy 8011), featuring precision-cut bridge bands for tamper-evidence.
+                  </p>
+                </div>
+                <Link href="/products#aluminium-caps" className="inline-flex items-center gap-1.5 text-sm font-semibold text-sky-600 hover:text-sky-700 mt-auto pt-3 border-t border-slate-100">
+                  <span>View Specifications</span>
+                  <ChevronRight size={16} />
+                </Link>
+              </div>
             </div>
 
             {/* Card 2: Polyethylene */}
-            <div className="flex flex-col p-6 sm:p-8 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-emerald-300 hover:shadow-lg transition-all duration-300">
-              <div className="w-14 h-14 rounded-xl flex items-center justify-center bg-emerald-50 text-emerald-600 mb-6">
-                <ShieldCheck size={28} />
+            <div className="flex flex-col rounded-2xl bg-white border border-slate-200 overflow-hidden hover:border-emerald-300 hover:shadow-xl transition-all duration-300 group">
+              <div className="relative h-48 w-full bg-slate-900 overflow-hidden">
+                <Image
+                  src="/images/gallery/Disinfection_(34).jpg"
+                  alt="Cleanroom Assembly Tooling for Polyethylene Liners and Gaskets"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-600/90 text-white shadow-md">
+                  FDA Liners
+                </span>
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Polyethylene Liners</h3>
-              <p className="text-sm text-slate-600 leading-relaxed mb-6 flex-1">
-                All materials and gasket liners are in compliance with <strong>European Standards &amp; FDA</strong> (Food &amp; Drug Administration USA)
-                regulations for materials intended to come into contact with pharmaceuticals and liquid medicines.
-              </p>
-              <Link href="/products" className="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-600 hover:text-emerald-700 mt-auto">
-                <span>Compliance Details</span>
-                <ChevronRight size={16} />
-              </Link>
+              <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-emerald-600 transition-colors">
+                    Polyethylene Liners &amp; Wads
+                  </h3>
+                  <p className="text-sm text-slate-600 leading-relaxed mb-6">
+                    Expanded PE gaskets compliant with European Standards &amp; FDA 21 CFR § 177.1520 regulations for direct medical and pharmaceutical liquid contact.
+                  </p>
+                </div>
+                <Link href="/products#pe-liners" className="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-600 hover:text-emerald-700 mt-auto pt-3 border-t border-slate-100">
+                  <span>Compliance Details</span>
+                  <ChevronRight size={16} />
+                </Link>
+              </div>
             </div>
 
             {/* Card 3: Polypropylene */}
-            <div className="flex flex-col p-6 sm:p-8 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-purple-300 hover:shadow-lg transition-all duration-300">
-              <div className="w-14 h-14 rounded-xl flex items-center justify-center bg-purple-50 text-purple-600 mb-6">
-                <Factory size={28} />
+            <div className="flex flex-col rounded-2xl bg-white border border-slate-200 overflow-hidden hover:border-purple-300 hover:shadow-xl transition-all duration-300 group">
+              <div className="relative h-48 w-full bg-slate-900 overflow-hidden">
+                <Image
+                  src="/images/products/cap-28-18-single.jpg"
+                  alt="Precision 28*18 mm Single Closure Detail and Thread Finish"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-bold bg-purple-600/90 text-white shadow-md">
+                  High-Speed Line
+                </span>
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Polypropylene Plastic Caps</h3>
-              <p className="text-sm text-slate-600 leading-relaxed mb-6 flex-1">
-                Recently we installed a high-speed production line dedicated to <strong>Polypropylene (Plastic) Caps 28*18 mm</strong>,
-                delivering ergonomic torque control, tamper evidence, and superior chemical resistance.
-              </p>
-              <Link href="/products" className="inline-flex items-center gap-1.5 text-sm font-semibold text-purple-600 hover:text-purple-700 mt-auto">
-                <span>New Production Line</span>
-                <ChevronRight size={16} />
-              </Link>
+              <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-purple-600 transition-colors">
+                    Polypropylene Plastic Caps
+                  </h3>
+                  <p className="text-sm text-slate-600 leading-relaxed mb-6">
+                    Installed automated high-speed line dedicated to Polypropylene Caps 28*18 mm, delivering precision torque control and ergonomic opening for patients.
+                  </p>
+                </div>
+                <Link href="/products#pp-caps" className="inline-flex items-center gap-1.5 text-sm font-semibold text-purple-600 hover:text-purple-700 mt-auto pt-3 border-t border-slate-100">
+                  <span>New Production Line</span>
+                  <ChevronRight size={16} />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
