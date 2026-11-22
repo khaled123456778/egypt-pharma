@@ -29,6 +29,7 @@ export default function HomePage() {
       date: "يناير 2026",
       excerpt: "في ذكرى ليلة الإسراء والمعراج المباركة، نسأل الله تعالى أن يتقبل منا صالح الأعمال، وأن يعيد هذه الذكرى العطرة على مصر والأمتين العربية والإسلامية بالخير واليمن والبركات.",
       slug: "/blog",
+      image: "/images/gallery/occasions/ايجيبت-الاسراء-والمعراج.jpg",
     },
     {
       id: 2,
@@ -37,22 +38,25 @@ export default function HomePage() {
       date: "ديسمبر 2025",
       excerpt: "إيجيبت فارما تتمنى لجميع شركاء النجاح من شركات الأدوية وكافة العاملين عاماً ميلادياً جديداً 2026 حافلاً بالإنجازات والتقدم ودوام الصحة والعافية.",
       slug: "/blog",
+      image: "/images/gallery/occasions/ايجيبت-راس-السنة-2026.jpg",
     },
     {
       id: 3,
-      title: "حكمة اليوم: فلسفة الجودة",
+      title: "حكمة اليوم: فلسفة الجودة والسلامة",
       category: "ثقافة الشركة",
       date: "ديسمبر 2025",
       excerpt: "“الفرق بين العادي والاستثنائي هو ذلك الجهد الإضافي الصغير.” التزامنا بمعايير الجودة الصارمة في تصنيع أغطية الأدوية هو ما يمنح شركاءنا راحة البال التامة.",
       slug: "/blog",
+      image: "/images/gallery/lectures/محاضرة-أكتوبر-2025-scaled.jpg",
     },
     {
       id: 4,
-      title: "الموظف المثالي الناجح",
+      title: "الموظف المثالي الناجح والولاء المؤسسي",
       category: "تطوير الكوادر",
       date: "ديسمبر 2025",
       excerpt: "(الأمانة، الإخلاص، الولاء والانتماء) ملخص المحاضرة التوعوية الدورية بمصنع العاشر من رمضان لترسيخ أعلى معايير الانضباط ومراقبة جودة خطوط الإنتاج.",
       slug: "/blog",
+      image: "/images/gallery/lectures/محاضرة-ديسمبر-2025-scaled.jpg",
     },
   ];
 
@@ -476,37 +480,50 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             {latestArticles.map((article) => (
               <div 
                 key={article.id} 
-                className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 hover:border-sky-300 hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
+                className="rounded-2xl bg-white border border-slate-200 overflow-hidden hover:border-sky-300 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
               >
-                <div>
-                  <div className="flex items-center justify-between gap-2 mb-4">
-                    <span className="text-xs font-bold text-sky-700 bg-sky-50 px-2.5 py-1 rounded-full border border-sky-100">
-                      {article.category}
-                    </span>
-                    <div className="flex items-center gap-1.5 text-xs text-slate-400">
-                      <Calendar size={13} />
-                      <span>{article.date}</span>
-                    </div>
+                {article.image && (
+                  <div className="relative h-48 sm:h-56 w-full bg-slate-900 overflow-hidden">
+                    <Image
+                      src={article.image}
+                      alt={article.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover hover:scale-105 transition-transform duration-500"
+                    />
                   </div>
-                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2 leading-snug" dir="rtl">
-                    {article.title}
-                  </h3>
-                  <p className="text-sm text-slate-600 leading-relaxed mb-6" dir="rtl">
-                    {article.excerpt}
-                  </p>
-                </div>
-                <div>
-                  <Link 
-                    href={article.slug} 
-                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-sky-600 hover:text-sky-700"
-                  >
-                    <span>Read More</span>
-                    <ArrowRight size={14} />
-                  </Link>
+                )}
+                <div className="p-6 sm:p-7 flex flex-col flex-1 justify-between">
+                  <div>
+                    <div className="flex items-center justify-between gap-2 mb-3">
+                      <span className="text-xs font-bold text-sky-700 bg-sky-50 px-2.5 py-1 rounded-full border border-sky-100">
+                        {article.category}
+                      </span>
+                      <div className="flex items-center gap-1.5 text-xs text-slate-400">
+                        <Calendar size={13} />
+                        <span>{article.date}</span>
+                      </div>
+                    </div>
+                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2 leading-snug" dir="rtl">
+                      {article.title}
+                    </h3>
+                    <p className="text-sm text-slate-600 leading-relaxed mb-6" dir="rtl">
+                      {article.excerpt}
+                    </p>
+                  </div>
+                  <div className="pt-4 border-t border-slate-100">
+                    <Link 
+                      href={article.slug} 
+                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-sky-600 hover:text-sky-700"
+                    >
+                      <span>Read Full Article &amp; Lecture</span>
+                      <ArrowRight size={14} />
+                    </Link>
+                  </div>
                 </div>
               </div>
             ))}

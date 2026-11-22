@@ -14,7 +14,11 @@ import {
   Flame, 
   MapPin,
   ExternalLink,
-  FileCheck
+  FileCheck,
+  Factory,
+  Building2,
+  GraduationCap,
+  Calendar
 } from "lucide-react";
 import { GALLERY_ITEMS, GalleryItem } from "@/data/galleryData";
 
@@ -73,9 +77,13 @@ export default function GalleryPage() {
 
   // Calculate counts for badges
   const allCount = GALLERY_ITEMS.length;
+  const insideCount = GALLERY_ITEMS.filter((i) => i.category === "inside").length;
+  const outsideCount = GALLERY_ITEMS.filter((i) => i.category === "outside").length;
   const sanitizationCount = GALLERY_ITEMS.filter((i) => i.category === "sanitization").length;
   const safetyCount = GALLERY_ITEMS.filter((i) => i.category === "safety").length;
   const certCount = GALLERY_ITEMS.filter((i) => i.category === "certifications").length;
+  const lectureCount = GALLERY_ITEMS.filter((i) => i.category === "lectures").length;
+  const occasionCount = GALLERY_ITEMS.filter((i) => i.category === "occasions").length;
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800">
@@ -85,13 +93,13 @@ export default function GalleryPage() {
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/20 text-sky-300 text-xs font-semibold mb-3 border border-sky-400/30">
               <Sparkles size={14} />
-              <span>Real Factory &amp; Facility Tour</span>
+              <span>Complete Photographic Archive ({allCount} Authentic Photos)</span>
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-white">
               Factory &amp; Safety Gallery
             </h1>
             <p className="text-base sm:text-lg text-slate-300 leading-relaxed mb-6">
-              Authentic visual documentation of Egypt Pharma’s manufacturing plant, automated lines, rigorous cleanroom sanitization, and certified fire protection infrastructure in 10th of Ramadan City.
+              Complete photographic documentation of Egypt Pharma’s manufacturing plant, automated lines, cleanroom sanitization, certified safety infrastructure, monthly workforce lectures, and corporate celebrations in 10th of Ramadan City.
             </p>
             <nav className="inline-flex items-center gap-2 text-xs sm:text-sm text-slate-400 bg-white/10 px-3.5 py-1.5 rounded-full border border-white/10" aria-label="Breadcrumbs">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
@@ -104,64 +112,103 @@ export default function GalleryPage() {
 
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 space-y-12">
         {/* Filter Tabs */}
-        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
           <button
             onClick={() => setActiveFilter("all")}
-            className={`px-4 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 ${
+            className={`px-3.5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all flex items-center gap-1.5 ${
               activeFilter === "all"
                 ? "bg-sky-600 text-white shadow-md shadow-sky-500/25"
                 : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-50"
             }`}
           >
-            <span>All Facilities &amp; Records</span>
+            <span>All Photos</span>
             <span className={`px-2 py-0.5 rounded-full text-[11px] ${activeFilter === "all" ? "bg-white/20 text-white" : "bg-slate-100 text-slate-600"}`}>
               {allCount}
             </span>
           </button>
 
           <button
+            onClick={() => setActiveFilter("inside")}
+            className={`px-3.5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all flex items-center gap-1.5 ${
+              activeFilter === "inside"
+                ? "bg-blue-600 text-white shadow-md shadow-blue-500/25"
+                : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-50"
+            }`}
+          >
+            <Factory size={15} />
+            <span>Production Lines ({insideCount})</span>
+          </button>
+
+          <button
+            onClick={() => setActiveFilter("outside")}
+            className={`px-3.5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all flex items-center gap-1.5 ${
+              activeFilter === "outside"
+                ? "bg-cyan-600 text-white shadow-md shadow-cyan-500/25"
+                : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-50"
+            }`}
+          >
+            <Building2 size={15} />
+            <span>Plant Exterior ({outsideCount})</span>
+          </button>
+
+          <button
             onClick={() => setActiveFilter("sanitization")}
-            className={`px-4 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 ${
+            className={`px-3.5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all flex items-center gap-1.5 ${
               activeFilter === "sanitization"
                 ? "bg-emerald-600 text-white shadow-md shadow-emerald-500/25"
                 : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-50"
             }`}
           >
-            <ShieldCheck size={16} />
-            <span>Sanitization &amp; Cleanrooms</span>
-            <span className={`px-2 py-0.5 rounded-full text-[11px] ${activeFilter === "sanitization" ? "bg-white/20 text-white" : "bg-slate-100 text-slate-600"}`}>
-              {sanitizationCount}
-            </span>
+            <ShieldCheck size={15} />
+            <span>Sanitization ({sanitizationCount})</span>
           </button>
 
           <button
             onClick={() => setActiveFilter("safety")}
-            className={`px-4 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 ${
+            className={`px-3.5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all flex items-center gap-1.5 ${
               activeFilter === "safety"
                 ? "bg-amber-600 text-white shadow-md shadow-amber-500/25"
                 : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-50"
             }`}
           >
-            <Flame size={16} />
-            <span>Safety &amp; Fire Protection</span>
-            <span className={`px-2 py-0.5 rounded-full text-[11px] ${activeFilter === "safety" ? "bg-white/20 text-white" : "bg-slate-100 text-slate-600"}`}>
-              {safetyCount}
-            </span>
+            <Flame size={15} />
+            <span>Safety &amp; Fire ({safetyCount})</span>
           </button>
 
           <button
             onClick={() => setActiveFilter("certifications")}
-            className={`px-4 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 ${
+            className={`px-3.5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all flex items-center gap-1.5 ${
               activeFilter === "certifications"
                 ? "bg-indigo-600 text-white shadow-md shadow-indigo-500/25"
                 : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-50"
             }`}
           >
-            <FileCheck size={16} />
-            <span>Government Accreditations &amp; Licenses</span>
-            <span className={`px-2 py-0.5 rounded-full text-[11px] ${activeFilter === "certifications" ? "bg-white/20 text-white" : "bg-slate-100 text-slate-600"}`}>
-              {certCount}
-            </span>
+            <FileCheck size={15} />
+            <span>Accreditations ({certCount})</span>
+          </button>
+
+          <button
+            onClick={() => setActiveFilter("lectures")}
+            className={`px-3.5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all flex items-center gap-1.5 ${
+              activeFilter === "lectures"
+                ? "bg-purple-600 text-white shadow-md shadow-purple-500/25"
+                : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-50"
+            }`}
+          >
+            <GraduationCap size={15} />
+            <span>Lectures &amp; Training ({lectureCount})</span>
+          </button>
+
+          <button
+            onClick={() => setActiveFilter("occasions")}
+            className={`px-3.5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all flex items-center gap-1.5 ${
+              activeFilter === "occasions"
+                ? "bg-rose-600 text-white shadow-md shadow-rose-500/25"
+                : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-50"
+            }`}
+          >
+            <Calendar size={15} />
+            <span>Events &amp; Greetings ({occasionCount})</span>
           </button>
         </div>
 
@@ -199,6 +246,14 @@ export default function GalleryPage() {
                       ? "bg-indigo-600/90 text-white border border-indigo-400/30"
                       : item.category === "safety"
                       ? "bg-amber-600/90 text-white border border-amber-400/30"
+                      : item.category === "inside"
+                      ? "bg-blue-600/90 text-white border border-blue-400/30"
+                      : item.category === "outside"
+                      ? "bg-cyan-700/90 text-white border border-cyan-400/30"
+                      : item.category === "lectures"
+                      ? "bg-purple-600/90 text-white border border-purple-400/30"
+                      : item.category === "occasions"
+                      ? "bg-rose-600/90 text-white border border-rose-400/30"
                       : "bg-emerald-600/90 text-white border border-emerald-400/30"
                   }`}>
                     {item.badge}

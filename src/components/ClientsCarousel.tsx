@@ -82,6 +82,7 @@ const clients: Client[] = [
     initials: "HP",
     category: "Global Healthcare",
     color: "#0891b2",
+    logoUrl: "/images/clients/hikma-pharma-logo.png",
   },
   {
     id: "pharaonia",
