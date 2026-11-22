@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Shield, Building2, CheckCircle2 } from "lucide-react";
 
 interface Client {
@@ -11,6 +12,7 @@ interface Client {
   initials: string;
   category: string;
   color: string;
+  logoUrl?: string;
 }
 
 const clients: Client[] = [
@@ -29,6 +31,7 @@ const clients: Client[] = [
     initials: "PH",
     category: "Multinational Healthcare",
     color: "#2563eb",
+    logoUrl: "/images/clients/Pharco_-Logo.jpg",
   },
   {
     id: "october",
@@ -37,6 +40,7 @@ const clients: Client[] = [
     initials: "OP",
     category: "Specialized Formulations",
     color: "#0d9488",
+    logoUrl: "/images/clients/October-Pharma_logo.png",
   },
   {
     id: "cid",
@@ -69,6 +73,7 @@ const clients: Client[] = [
     initials: "AP",
     category: "High-Volume Production",
     color: "#dc2626",
+    logoUrl: "/images/clients/Amriya-Pharmaceutical-Industries-Egypt-18834-1499339109-og.jpg",
   },
   {
     id: "hikma",
@@ -106,14 +111,30 @@ export default function ClientsCarousel() {
             className="flex flex-col items-center text-center p-5 rounded-xl border border-slate-200 bg-white hover:border-sky-300 hover:shadow-lg transition-all duration-300 group"
           >
             <div
-              className="w-16 h-16 rounded-2xl flex items-center justify-center font-bold text-lg mb-3.5 border transition-transform duration-300 group-hover:scale-105"
+              className="relative w-16 h-16 rounded-2xl flex items-center justify-center font-bold text-lg mb-3.5 border transition-transform duration-300 group-hover:scale-105 overflow-hidden bg-white"
               style={{
-                background: `linear-gradient(135deg, ${client.color}15, ${client.color}30)`,
                 borderColor: `${client.color}40`,
                 color: client.color,
               }}
             >
-              <span>{client.initials}</span>
+              {client.logoUrl ? (
+                <Image
+                  src={client.logoUrl}
+                  alt={client.name}
+                  fill
+                  className="object-contain p-2"
+                />
+              ) : (
+                <div
+                  className="w-full h-full flex items-center justify-center font-bold text-lg"
+                  style={{
+                    background: `linear-gradient(135deg, ${client.color}15, ${client.color}30)`,
+                    color: client.color,
+                  }}
+                >
+                  <span>{client.initials}</span>
+                </div>
+              )}
             </div>
             <div className="flex flex-col items-center flex-1">
               <h4 className="text-base font-bold text-slate-800 mb-1">{client.name}</h4>

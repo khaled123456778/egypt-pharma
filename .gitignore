@@ -35,3 +35,7 @@ yarn-error.log*
 # os files
 .DS_Store
 Thumbs.db
+
+# raw uploaded backup archives (883MB)
+/src/uploads/
+/src/photo-gallery/

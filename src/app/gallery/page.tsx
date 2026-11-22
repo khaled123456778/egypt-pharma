@@ -158,7 +158,7 @@ export default function GalleryPage() {
             }`}
           >
             <FileCheck size={16} />
-            <span>IDA License &amp; Accreditation</span>
+            <span>Government Accreditations &amp; Licenses</span>
             <span className={`px-2 py-0.5 rounded-full text-[11px] ${activeFilter === "certifications" ? "bg-white/20 text-white" : "bg-slate-100 text-slate-600"}`}>
               {certCount}
             </span>

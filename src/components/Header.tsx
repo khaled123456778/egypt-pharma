@@ -106,6 +106,22 @@ const SEARCH_ITEMS: SearchItem[] = [
     tags: ["ida", "certificate", "license", "registry", "سجل", "صناعي", "ترخيص", "اعتماد"],
   },
   {
+    id: "doc-2",
+    title: "Ministry of Health Compliance Certificate",
+    category: "Document",
+    description: "Egyptian Ministry of Health official clearance for primary pharmaceutical closure production.",
+    href: "/gallery",
+    tags: ["health", "ministry", "moh", "صحة", "وزارة الصحة", "اعتماد", "مطابقة"],
+  },
+  {
+    id: "doc-3",
+    title: "Chamber of Pharmaceuticals & Cosmetics Membership (FEI)",
+    category: "Document",
+    description: "Federation of Egyptian Industries certified chamber registration for pharmaceutical packaging.",
+    href: "/gallery",
+    tags: ["chamber", "fei", "اتحاد", "الصناعات", "غرفة", "عضوية"],
+  },
+  {
     id: "comp-1",
     title: "About Egypt Pharma & Corporate Story",
     category: "Company",

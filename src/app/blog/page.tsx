@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
+import Image from "next/image";
 import { ChevronRight, Search, Calendar, User, Tag, ArrowRight, X, BookOpen, Share2 } from "lucide-react";
 
 interface BlogPost {
@@ -17,6 +18,7 @@ interface BlogPost {
   excerpt: string;
   fullContent: string[];
   bgGradient: string;
+  image?: string;
 }
 
 const BLOG_POSTS: BlogPost[] = [
@@ -36,6 +38,7 @@ const BLOG_POSTS: BlogPost[] = [
       "تم تكريم عدد من الكوادر الفنية المتميزة التي حققت معدلات إنتاجية قياسية مع نسبة هدر صفري (Zero Defect) خلال الربع السنوي، تأكيداً على نهج الشركة في تشجيع الكفاءات الوطنية."
     ],
     bgGradient: "linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)",
+    image: "/images/blog/مواصفات-الموظف-المثالي.png",
   },
   {
     id: "p2",
@@ -70,6 +73,7 @@ const BLOG_POSTS: BlogPost[] = [
       "كل عام وأنتم بخير، ونسأل الله أن يكون عاماً حافلاً بالإنجاز والازدهار لمصرنا الغالية ولصناعتنا الدوائية الرائدة."
     ],
     bgGradient: "linear-gradient(135deg, #4338ca 0%, #6366f1 100%)",
+    image: "/images/blog/ايجيبت-راس-السنة-2026.jpg",
   },
   {
     id: "p4",
@@ -86,6 +90,7 @@ const BLOG_POSTS: BlogPost[] = [
       "أعادها الله علينا وعليكم وعلى مصرنا الحبيبة بالخير واليمن والبركات، ودوام التقدم والازدهار لقطاعنا الصناعي والصحي."
     ],
     bgGradient: "linear-gradient(135deg, #0369a1 0%, #0284c7 100%)",
+    image: "/images/blog/ايجيبت-الاسراء-والمعراج.jpg",
   },
   {
     id: "p5",
@@ -244,11 +249,19 @@ export default function BlogPage() {
             {filteredPosts.map((post) => (
               <article key={post.id} className="flex flex-col rounded-2xl bg-white border border-slate-200 overflow-hidden hover:shadow-xl hover:border-sky-300 transition-all duration-300">
                 <div
-                  className="relative h-44 flex flex-col justify-end p-5 text-white"
+                  className="relative h-44 flex flex-col justify-end p-5 text-white overflow-hidden group"
                   style={{ background: post.bgGradient }}
                 >
-                  <BookOpen size={36} className="opacity-80 mb-2" />
-                  <span className="absolute top-4 right-4 text-xs font-semibold bg-black/30 backdrop-blur-sm px-3 py-1 rounded-full text-white">
+                  {post.image && (
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      fill
+                      className="object-cover opacity-35 group-hover:scale-105 transition-transform duration-500"
+                    />
+                  )}
+                  <BookOpen size={36} className="opacity-80 mb-2 relative z-10" />
+                  <span className="absolute top-4 right-4 z-10 text-xs font-semibold bg-black/40 backdrop-blur-sm px-3 py-1 rounded-full text-white border border-white/20">
                     {post.categoryLabel}
                   </span>
                 </div>
@@ -306,10 +319,18 @@ export default function BlogPage() {
                 <X size={20} />
               </button>
               <div
-                className="relative h-44 sm:h-52 flex items-center justify-center text-white text-center p-6 shrink-0"
+                className="relative h-48 sm:h-60 flex items-center justify-center text-white text-center p-6 shrink-0 overflow-hidden"
                 style={{ background: activePost.bgGradient }}
               >
-                <div>
+                {activePost.image && (
+                  <Image
+                    src={activePost.image}
+                    alt={activePost.title}
+                    fill
+                    className="object-cover opacity-35"
+                  />
+                )}
+                <div className="relative z-10">
                   <span className="inline-block px-3.5 py-1 rounded-full text-xs font-semibold bg-white/20 backdrop-blur-sm mb-3 text-white">
                     {activePost.categoryLabel}
                   </span>
