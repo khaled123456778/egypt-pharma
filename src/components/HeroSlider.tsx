@@ -14,6 +14,7 @@ interface SlideData {
   primaryCta: { text: string; href: string };
   secondaryCta: { text: string; href: string };
   bgGradient: string;
+  bgImage: string;
   accentColor: string;
 }
 
@@ -28,7 +29,8 @@ const slides: SlideData[] = [
       "Premier Egyptian joint stock manufacturer delivering world-class Aluminium P.P. Caps (28*18 mm), precision liners, and advanced closures for high-demand pharmaceutical packaging.",
     primaryCta: { text: "Read more", href: "/about-us" },
     secondaryCta: { text: "View Products", href: "/products" },
-    bgGradient: "radial-gradient(circle at 20% 50%, rgba(30, 58, 138, 0.95) 0%, rgba(15, 23, 42, 0.98) 100%)",
+    bgGradient: "radial-gradient(circle at 20% 50%, rgba(15, 23, 42, 0.88) 0%, rgba(11, 19, 43, 0.95) 100%)",
+    bgImage: "/images/hero/slide-1.jpg",
     accentColor: "#38bdf8",
   },
   {
@@ -41,7 +43,8 @@ const slides: SlideData[] = [
       "Trusted strategic supplier for Egypt's flagship pharma manufacturers including EIPICO, Pharco, October Pharma, CID, and Memphis with zero-defect sealing guarantees.",
     primaryCta: { text: "Our Clients", href: "/customers" },
     secondaryCta: { text: "Contact Engineering", href: "/contact" },
-    bgGradient: "radial-gradient(circle at 80% 50%, rgba(13, 148, 136, 0.92) 0%, rgba(15, 23, 42, 0.98) 100%)",
+    bgGradient: "radial-gradient(circle at 80% 50%, rgba(15, 23, 42, 0.85) 0%, rgba(13, 148, 136, 0.90) 100%)",
+    bgImage: "/images/hero/slide-2.jpg",
     accentColor: "#2dd4bf",
   },
   {
@@ -54,7 +57,8 @@ const slides: SlideData[] = [
       "All aluminium coils and polyethylene liner gaskets meet stringent FDA and European Pharmacopeia requirements for direct pharmaceutical and medical contact.",
     primaryCta: { text: "Explore Products", href: "/products" },
     secondaryCta: { text: "Facility Overview", href: "/gallery" },
-    bgGradient: "radial-gradient(circle at 50% 50%, rgba(29, 78, 216, 0.92) 0%, rgba(11, 19, 43, 0.98) 100%)",
+    bgGradient: "radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.85) 0%, rgba(29, 78, 216, 0.90) 100%)",
+    bgImage: "/images/hero/slide-3.jpg",
     accentColor: "#60a5fa",
   },
 ];
@@ -85,14 +89,30 @@ export default function HeroSlider() {
       role="region"
       aria-label="Homepage Feature Showcase"
     >
-      {/* Background Visual Layer */}
-      <div
-        className="absolute inset-0 transition-all duration-1000 ease-in-out -z-10"
-        style={{
-          background: activeSlide.bgGradient,
-        }}
-      >
-        <div className="absolute inset-0 bg-[radial-gradient(#ffffff0a_1px,transparent_1px)] [background-size:24px_24px] opacity-60" />
+      {/* Background Visual Layer with Real Photography Backdrop */}
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+        {slides.map((s, idx) => (
+          <div
+            key={s.id}
+            className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out ${
+              idx === current ? "opacity-100 scale-100" : "opacity-0 scale-105 pointer-events-none"
+            }`}
+            style={{
+              backgroundImage: `url(${s.bgImage})`,
+              transitionProperty: "opacity, transform",
+            }}
+          >
+            {/* Dark contrast gradient overlay */}
+            <div 
+              className="absolute inset-0"
+              style={{
+                background: s.bgGradient,
+              }}
+            />
+            {/* Subtle grid pattern for modern touch */}
+            <div className="absolute inset-0 bg-[radial-gradient(#ffffff0a_1px,transparent_1px)] [background-size:24px_24px] opacity-40" />
+          </div>
+        ))}
       </div>
 
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative z-10">

@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { 
   Search, 
@@ -251,10 +252,17 @@ export default function Header() {
       <header className="sticky top-0 z-50 bg-white shadow-sm border-b border-slate-200 h-20 flex items-center" id="masthead">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between w-full">
-            {/* Branding */}
-            <Link href="/" className="flex items-center gap-3 group" aria-label="Egypt Pharma Home">
-              <div className="w-[46px] h-[46px] rounded-md bg-gradient-to-br from-pharma-navy to-pharma-sky flex items-center justify-center text-white font-extrabold text-xl shadow-md transition-transform group-hover:scale-105">
-                EP
+            {/* Branding with Authentic Logo */}
+            <Link href="/" className="flex items-center gap-3.5 group" aria-label="Egypt Pharma Home">
+              <div className="relative w-12 h-12 rounded-lg overflow-hidden border border-slate-200/80 shadow-sm bg-white shrink-0 group-hover:scale-105 transition-transform">
+                <Image
+                  src="/images/brand/logo-original.jpg"
+                  alt="Egypt Pharma Official Logo"
+                  fill
+                  sizes="48px"
+                  className="object-contain p-0.5"
+                  priority
+                />
               </div>
               <div className="flex flex-col">
                 <span className="text-xl font-extrabold text-pharma-dark tracking-tight leading-tight">

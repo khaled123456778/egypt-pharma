@@ -71,6 +71,23 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     location: "Federation of Egyptian Industries",
     standards: ["FEI Law Compliance", "Pharmaceutical Industry Chamber", "Active Corporate Member"],
   },
+  {
+    id: "cert-operating-01",
+    title: "Permanent Operating License by Notification System (IDA)",
+    titleAr: "رخصة تشغيل دائمة بنظام الإخطار - التنمية الصناعية",
+    category: "certifications",
+    categoryLabel: "Official Licenses & IDA Accreditation",
+    categoryLabelAr: "التراخيص الرسمية واعتماد هيئة التنمية الصناعية",
+    desc: "Permanent industrial operating license issued by the Industrial Development Authority under Law 15/2017 for industrial facility operation.",
+    descAr: "رخصة التشغيل الصناعية الدائمة الصادرة من الهيئة العامة للتنمية الصناعية بموجب القانون رقم 15 لسنة 2017 لتشغيل المنشأة الصناعية.",
+    fullDesc: "Permanent industrial operating license issued by the Egyptian Industrial Development Authority (IDA) under Law 15 of 2017 facilitating industrial licensing. Confirms full adherence to safety, environmental, and operational codes for pharmaceutical closure production in 10th of Ramadan City.",
+    fullDescAr: "رخصة تشغيل دائمة للمنشأة الصناعية صادرة من الهيئة العامة للتنمية الصناعية طبقاً لأحكام القانون رقم 15 لسنة 2017 ولائحته التنفيذية، تثبت استيفاء كافة الاشتراطات الفنية والبيئية واشتراطات الحماية المدنية بمصنع الشركة بالعاشر من رمضان.",
+    imageUrl: "/images/certificates/operating-license.jpg",
+    thumbUrl: "/images/certificates/operating-license.jpg",
+    badge: "Permanent IDA License",
+    location: "10th of Ramadan City, Plot 86",
+    standards: ["IDA Law 15/2017", "Civil Defense Approved", "Permanent Status"],
+  },
 
   // ==========================================
   // 2. DISINFECTION & HYGIENE PROTOCOLS

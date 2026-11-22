@@ -115,18 +115,18 @@ export default function ProductsPage() {
               </div>
             </div>
 
-            {/* Visual Column with Real Photo */}
+            {/* Visual Column with Authentic Product Photo */}
             <div className="lg:col-span-5 bg-gradient-to-br from-slate-900 to-sky-950 p-6 sm:p-8 text-white flex flex-col justify-between space-y-5">
-              <div className="relative h-48 sm:h-56 w-full rounded-2xl overflow-hidden border border-white/10 shadow-lg">
+              <div className="relative h-48 sm:h-56 w-full rounded-2xl overflow-hidden border border-white/10 shadow-lg bg-slate-950">
                 <Image
-                  src="/images/gallery/Disinfection_(27).jpg"
-                  alt="High-Speed Stamping Press & Cap Feeder Line in Egypt Pharma"
+                  src="/images/products/cap-28-18-bottles.jpg"
+                  alt="Egypt Pharma 28*18 mm Aluminium P.P. Caps Sealed on Glass and PET Bottles"
                   fill
                   sizes="(max-width: 1024px) 100vw, 40vw"
                   className="object-cover"
                 />
                 <span className="absolute bottom-2.5 left-2.5 px-3 py-1 rounded-full text-[11px] font-bold bg-slate-950/80 text-white backdrop-blur-sm border border-white/10">
-                  Automated Stamping &amp; Knurling Press
+                  Original 28*18 mm Caps on Pharma Bottles
                 </span>
               </div>
 
@@ -279,18 +279,18 @@ export default function ProductsPage() {
               </div>
             </div>
 
-            {/* Visual Column with Real Photo */}
+            {/* Visual Column with Authentic Single Closure Photo */}
             <div className="lg:col-span-5 bg-gradient-to-br from-slate-900 to-purple-950 p-6 sm:p-8 text-white flex flex-col justify-between space-y-5">
-              <div className="relative h-48 sm:h-56 w-full rounded-2xl overflow-hidden border border-white/10 shadow-lg">
+              <div className="relative h-48 sm:h-56 w-full rounded-2xl overflow-hidden border border-white/10 shadow-lg bg-slate-950">
                 <Image
-                  src="/images/gallery/Disinfection_(31).jpg"
-                  alt="Sorting and Conveying Line Handling Finished Closures"
+                  src="/images/products/cap-28-18-single.jpg"
+                  alt="Egypt Pharma Precision 28*18 mm Single Closure Detail"
                   fill
                   sizes="(max-width: 1024px) 100vw, 40vw"
                   className="object-cover"
                 />
                 <span className="absolute bottom-2.5 left-2.5 px-3 py-1 rounded-full text-[11px] font-bold bg-slate-950/80 text-white backdrop-blur-sm border border-white/10">
-                  Sorting &amp; Conveyance Hygiene
+                  Precision 28*18 mm Closure Architecture
                 </span>
               </div>
 

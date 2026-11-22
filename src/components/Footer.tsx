@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { MapPin, Phone, Mail, ShieldCheck } from "lucide-react";
 
 export default function Footer() {
@@ -9,9 +10,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
           {/* Company Bio */}
           <div>
-            <div className="flex items-center gap-3 mb-5">
-              <div className="w-[46px] h-[46px] rounded-md bg-gradient-to-br from-pharma-navy to-pharma-sky flex items-center justify-center text-white font-extrabold text-xl shadow-md">
-                EP
+            <div className="flex items-center gap-3.5 mb-5">
+              <div className="relative w-12 h-12 rounded-lg overflow-hidden border border-slate-700 shadow-md bg-white shrink-0">
+                <Image
+                  src="/images/brand/logo-original.jpg"
+                  alt="Egypt Pharma Official Logo"
+                  fill
+                  sizes="48px"
+                  className="object-contain p-0.5"
+                />
               </div>
               <div className="flex flex-col">
                 <span className="text-white font-bold text-lg leading-tight tracking-tight">

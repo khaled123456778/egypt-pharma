@@ -248,7 +248,7 @@ export default function HomePage() {
                 href="/gallery"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-sky-600 hover:bg-sky-500 text-white font-semibold text-sm transition-all shadow-md hover:shadow-sky-500/25 whitespace-nowrap"
               >
-                <span>View All 18 Facility Photos</span>
+                <span>View Complete Facility Gallery</span>
                 <ArrowRight size={16} />
               </Link>
             </div>

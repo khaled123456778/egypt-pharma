@@ -253,13 +253,13 @@ export default function AboutUsPage() {
                 <div className="p-3 bg-slate-800 text-center">
                   <span className="text-xs font-semibold text-slate-300 flex items-center justify-center gap-1.5">
                     <FileCheck size={14} className="text-emerald-400" />
-                    <span>3 Certified Government Accreditations Available</span>
+                    <span>4 Official Government Accreditations Available</span>
                   </span>
                 </div>
               </div>
 
               {/* Quick Document Switchers */}
-              <div className="flex gap-2 w-full max-w-sm justify-center">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 w-full max-w-lg justify-center">
                 <button
                   type="button"
                   onClick={() => setSelectedCert({
@@ -268,9 +268,21 @@ export default function AboutUsPage() {
                     image: "/images/certificates/industrial-registry-certificate.jpg",
                     meta: "10th of Ramadan City Plant, Zone A6, Plot 86 • 65 Million Annual Capacity"
                   })}
-                  className="flex-1 py-1.5 px-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-[11px] font-semibold text-slate-300 hover:text-white border border-slate-700 text-center transition-colors"
+                  className="py-1.5 px-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-[11px] font-semibold text-slate-300 hover:text-white border border-slate-700 text-center transition-colors"
                 >
                   IDA Registry
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setSelectedCert({
+                    title: "Permanent Operating License (IDA)",
+                    titleAr: "رخصة تشغيل دائمة بنظام الإخطار - التنمية الصناعية",
+                    image: "/images/certificates/operating-license.jpg",
+                    meta: "Permanent Industrial Operating License under Egyptian Law"
+                  })}
+                  className="py-1.5 px-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-[11px] font-semibold text-slate-300 hover:text-white border border-slate-700 text-center transition-colors"
+                >
+                  Operating License
                 </button>
                 <button
                   type="button"
@@ -280,7 +292,7 @@ export default function AboutUsPage() {
                     image: "/images/certificates/ministry-of-health-certificate.jpg",
                     meta: "Official Clearance for Primary Pharmaceutical Packaging & Closure Manufacturing"
                   })}
-                  className="flex-1 py-1.5 px-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-[11px] font-semibold text-slate-300 hover:text-white border border-slate-700 text-center transition-colors"
+                  className="py-1.5 px-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-[11px] font-semibold text-slate-300 hover:text-white border border-slate-700 text-center transition-colors"
                 >
                   Health Ministry
                 </button>
@@ -292,7 +304,7 @@ export default function AboutUsPage() {
                     image: "/images/certificates/chamber-membership-certificate.jpg",
                     meta: "Active Corporate Member - Federation of Egyptian Industries (FEI)"
                   })}
-                  className="flex-1 py-1.5 px-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-[11px] font-semibold text-slate-300 hover:text-white border border-slate-700 text-center transition-colors"
+                  className="py-1.5 px-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-[11px] font-semibold text-slate-300 hover:text-white border border-slate-700 text-center transition-colors"
                 >
                   FEI Chamber
                 </button>
